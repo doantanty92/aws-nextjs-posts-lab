@@ -5,8 +5,8 @@ import Image from "next/image";
 export default async function About() {
   await connection();
   const hostname = os.hostname();
-  const imageUrl = process.env.CLOUDFRONT_URL
-    ? `${process.env.CLOUDFRONT_URL}/images/about-image.jpg`
+  const imageUrl = process.env.NEXT_PUBLIC_CLOUDFRONT_URL
+    ? `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/images/about-image.jpg`
     : null;
 
   return (
@@ -22,7 +22,7 @@ export default async function About() {
         />
       ) : (
         <p className="mb-6 text-zinc-500">
-          Set the CLOUDFRONT_URL environment variable to display an image.
+          Set the NEXT_PUBLIC_CLOUDFRONT_URL environment variable to display an image.
         </p>
       )}
       <p className="mt-4 text-sm text-zinc-500">Served by: {hostname}</p>
